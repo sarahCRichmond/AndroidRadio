@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MySqlDemo</string>
+    <string name="title_activity_alarm">AlarmActivity</string>
+    <string name="title_activity_set_alarm">SetAlarm</string>
 </resources>
