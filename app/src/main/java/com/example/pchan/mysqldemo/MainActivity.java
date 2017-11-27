@@ -1,6 +1,7 @@
 package com.example.pchan.mysqldemo;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.LocationManager;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         UsernameEt = (EditText)findViewById(R.id.etUserName);
         PasswordEt = (EditText)findViewById(R.id.etPassword);
-        
+
         CollectData();
     }
 
@@ -90,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
     public void OnLogin(View view) {
         user = new User();
         user.Login(this, UsernameEt.getText().toString(), PasswordEt.getText().toString());
+    }
+
+    public void OnAlarm(View view) {
+        Intent myIntent = new Intent(view.getContext(), AlarmActivity.class);
+        startActivity(myIntent);
     }
 
 
