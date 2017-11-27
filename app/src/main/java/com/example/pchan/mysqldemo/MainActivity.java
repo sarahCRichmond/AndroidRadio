@@ -20,7 +20,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     EditText UsernameEt, PasswordEt;
-
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         UsernameEt = (EditText)findViewById(R.id.etUserName);
         PasswordEt = (EditText)findViewById(R.id.etPassword);
 
-        //CollectData();
+        CollectData();
     }
 
     public void CollectData()
@@ -88,15 +88,9 @@ public class MainActivity extends AppCompatActivity {
         dataSender.execute(type2, String.valueOf(myLongitude), String.valueOf(myLatitude), String.valueOf(android_id), time.toString(), "1" );
     }
 
-
     public void OnLogin(View view) {
-        String username = UsernameEt.getText().toString();
-        String password = PasswordEt.getText().toString();
-
-        String type = "login";
-        BackgroundWorker bgworker = new BackgroundWorker(this);
-        bgworker.execute(type, username, password);
-
+        user = new User();
+        user.Login(this, UsernameEt.getText().toString(), PasswordEt.getText().toString());
     }
 
     public void OnAlarm(View view) {
