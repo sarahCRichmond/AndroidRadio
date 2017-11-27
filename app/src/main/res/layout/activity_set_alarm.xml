@@ -60,12 +60,12 @@
             android:orientation="vertical">
 
             <TimePicker
-                android:id="@+id/timePicker2"
+                android:id="@+id/timePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <DatePicker
-                android:id="@+id/datePicker6"
+                android:id="@+id/datePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
