@@ -1,5 +1,7 @@
 package com.example.pchan.mysqldemo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -33,6 +36,7 @@ public class SetAlarm extends AppCompatActivity {
     }
 
     public void onSet(View view) {
+        System.out.println(">>>>>>>>>>>>>>>>>>>> ONSET YO <<<<<<<<<<<<<<<<<<<<<<<<<<<");
         DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
         day = datePicker.getDayOfMonth();
         month = datePicker.getMonth();
@@ -40,7 +44,13 @@ public class SetAlarm extends AppCompatActivity {
         TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
         hour = timePicker.getCurrentHour();
         minute = timePicker.getCurrentMinute();
-        //return(year + "-" + month + "-" + day + "   " + hour + ":" + minute);
+        System.out.println(">>>>>>>>>>>>>" + year + "-" + month + "-" + day + "." + hour + ":" + minute + "<<<<<<<<<<<<<");
+        Alarm alarm = new Alarm(year+"-"+month+"-"+day, hour + ":" + minute);
+        Context context = this;
+        File alrmDat = new File(context.getFilesDir(), "alrDat.txt");
+        aFileIO alrmList = new aFileIO(alarm, alrmDat);
+        Intent myIntent = new Intent(view.getContext(), AlarmActivity.class);
+        startActivity(myIntent);
     }
 
 }
