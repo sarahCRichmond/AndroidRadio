@@ -29,9 +29,12 @@
         <activity
             android:name=".SetAlarm"
             android:label="@string/title_activity_set_alarm"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".AlarmActivity">
-        </activity>
+            android:parentActivityName=".AlarmActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".AlarmActivated"
+            android:label="@string/title_activity_alarm_activated"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
