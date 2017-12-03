@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidRadio.iml" filepath="$PROJECT_DIR$/AndroidRadio.iml" />
-      <module fileurl="file://C:\Users\Taylor\AndroidStudioProjects\AndroidRadio\MySqlDemo.iml" filepath="C:\Users\Taylor\AndroidStudioProjects\AndroidRadio\MySqlDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MySqlDemo.iml" filepath="$PROJECT_DIR$/MySqlDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

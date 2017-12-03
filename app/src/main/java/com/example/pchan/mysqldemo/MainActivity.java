@@ -89,12 +89,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnLogin(View view) {
-        user = new User();
+        user = User.getInstance();
         user.Login(this, UsernameEt.getText().toString(), PasswordEt.getText().toString());
+        if (user.accountID != 0){ //only login if credentials validated
+            Intent myIntent = new Intent(view.getContext(), MainMenuActivity.class);
+            startActivity(myIntent);
+        }
+
     }
 
     public void OnAlarm(View view) {
         Intent myIntent = new Intent(view.getContext(), AlarmActivity.class);
+        startActivity(myIntent);
+    }
+
+    public void OnRegister(View view) {
+        Intent myIntent = new Intent(view.getContext(), RegisterActivity.class);
         startActivity(myIntent);
     }
 
