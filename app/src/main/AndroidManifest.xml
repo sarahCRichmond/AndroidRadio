@@ -49,6 +49,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.pchan.mysqldemo.MainActivity" />
         </activity>
+        <activity android:name=".Music_Activity" />
+        <activity
+            android:name=".music_player"
+            android:label="@string/title_activity_music_player" />
         <activity android:name=".MainMenuActivity"></activity>
     </application>
 

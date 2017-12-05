@@ -24,7 +24,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Play Music (btn place holder)" />
+            android:onClick="OnMusic"
+            android:text="Play Music" />
 
         <Button
             android:layout_width="match_parent"

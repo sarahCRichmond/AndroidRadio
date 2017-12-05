@@ -18,6 +18,11 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(myIntent);
     }
 
+    public void OnMusic(View view){
+        Intent myIntent = new Intent(view.getContext(), Music_Activity.class);
+        startActivity(myIntent);
+    }
+
     public void OnLogout(View view) {
         User.getInstance().Logout();
         Intent myIntent = new Intent(view.getContext(), MainActivity.class);
