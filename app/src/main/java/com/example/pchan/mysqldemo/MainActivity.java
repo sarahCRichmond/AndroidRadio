@@ -3,6 +3,7 @@ package com.example.pchan.mysqldemo;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Criteria;
 import android.location.LocationManager;
 import android.location.Location;
@@ -16,10 +17,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.provider.Settings.Secure;
+import android.widget.TextView;
+
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     EditText UsernameEt, PasswordEt;
+    TextView loginMsgTv;
     User user;
 
     @Override
@@ -28,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         UsernameEt = (EditText)findViewById(R.id.etUserName);
         PasswordEt = (EditText)findViewById(R.id.etPassword);
-
+        loginMsgTv = (TextView)findViewById(R.id.loginErrorMsgTv);
+        loginMsgTv.setTextColor(Color.RED);
         CollectData();
     }
 
@@ -88,22 +93,36 @@ public class MainActivity extends AppCompatActivity {
         dataSender.execute(type2, String.valueOf(myLongitude), String.valueOf(myLatitude), String.valueOf(android_id), time.toString(), "1" );
     }
 
-    public void OnLogin(View view) {
+    public void OnLogin(View view) throws InterruptedException {
         user = User.getInstance();
-        user.Login(this, UsernameEt.getText().toString(), PasswordEt.getText().toString());
-        if (user.accountID != 0){ //only login if credentials validated
-            Intent myIntent = new Intent(view.getContext(), MainMenuActivity.class);
-            startActivity(myIntent);
+        String test1 = UsernameEt.getText().toString();
+        String test2 = PasswordEt.getText().toString();
+        if (UsernameEt.getText().toString().equals("") || PasswordEt.getText().toString().equals(""))
+        {
+            loginMsgTv.setText("Make sure to fill in the username and password fields above");
+        }
+        else //only login if username & password are filled out
+        {
+            user.Login(this, UsernameEt.getText().toString(), PasswordEt.getText().toString());
+            Thread.sleep(1000);
+            if (user.accountID != 0){ //only login if credentials validated
+                Intent myIntent = new Intent(view.getContext(), MainMenuActivity.class);
+                startActivity(myIntent);
+                loginMsgTv.setText("");
+            }
+            else
+            {
+                loginMsgTv.setText("No matching username and password, retry or make a new account");
+            }
         }
 
-    }
 
-    public void OnAlarm(View view) {
-        Intent myIntent = new Intent(view.getContext(), AlarmActivity.class);
-        startActivity(myIntent);
     }
 
     public void OnRegister(View view) {
+        UsernameEt.setText("");
+        PasswordEt.setText("");
+        loginMsgTv.setText("");
         Intent myIntent = new Intent(view.getContext(), RegisterActivity.class);
         startActivity(myIntent);
     }

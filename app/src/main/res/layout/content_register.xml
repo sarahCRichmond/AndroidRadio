@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Username" />
+            android:maxLength="30"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -39,7 +40,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Email" />
+            android:maxLength="30"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -52,7 +54,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Password" />
+            android:maxLength="30"
+            />
 
         <Button
             android:id="@+id/RegisterBtn"
@@ -60,6 +63,11 @@
             android:layout_height="wrap_content"
             android:onClick="OnRegisterAcct"
             android:text="Register Account" />
+
+        <TextView
+            android:id="@+id/registerErrorMsg"
+            android:layout_width="match_parent"
+            android:layout_height="37dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

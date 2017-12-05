@@ -24,6 +24,11 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(myIntent);
     }
 
+    public void onBackPressed() {
+        //because we want the back button not work in the main menu, user should
+        //press logout to go back to the login screen
+    }
+
 //    public void OnPlayMusic(View view) {
 //        Intent myIntent = new Intent(view.getContext(), MusicPlayer.class);
 //        startActivity(myIntent);

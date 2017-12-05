@@ -142,8 +142,10 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 }
 
                 String[] fields = result.split(";");
-                User.getInstance().email = fields[0];
-                User.getInstance().accountID = Integer.parseInt(fields[1]);
+                if (fields.length > 0)
+                    User.getInstance().email = fields[0];
+                if (fields.length > 1)
+                    User.getInstance().accountID = Integer.parseInt(fields[1]);
 
                 bufferedReader.close();
                 inputStream.close();
@@ -168,9 +170,9 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         if (type.equals("login")) {
-            alertDialog.setTitle("Login Status");
-            alertDialog.setMessage(result);
-            alertDialog.show();
+//            alertDialog.setTitle("Login Status");
+//            alertDialog.setMessage(result);
+//            alertDialog.show();
         }
         else if ((type.equals("register"))) {
             alertDialog.setTitle("Registration Status");
