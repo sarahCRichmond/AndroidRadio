@@ -38,7 +38,7 @@
             android:id="@+id/ALARM2"
             android:layout_width="match_parent"
             android:layout_height="223dp"
-            android:text="SURPRISE!\nALARM MOFO"
+            android:text="ALARM"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/button4"
