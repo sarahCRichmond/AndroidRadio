@@ -34,8 +34,4 @@ public class MainMenuActivity extends AppCompatActivity {
         //press logout to go back to the login screen
     }
 
-//    public void OnPlayMusic(View view) {
-//        Intent myIntent = new Intent(view.getContext(), MusicPlayer.class);
-//        startActivity(myIntent);
-//    }
 }
