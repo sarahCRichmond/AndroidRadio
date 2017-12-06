@@ -2,6 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/thumbs_down"
+        android:icon="@drawable/thumbs_down"
+        android:title="@string/title_thumbs_down" />
+    <item
         android:id="@+id/prev"
         android:icon="@drawable/ic_previous"
         android:title="@string/title_prev" />
@@ -16,4 +20,8 @@
         android:icon="@drawable/ic_skip_song"
         android:title="@string/title_next" />
 
+    <item
+        android:id="@+id/thumbs_up"
+        android:icon="@drawable/thumbs_up"
+        android:title="@string/title_thumbs_up" />
 </menu>
