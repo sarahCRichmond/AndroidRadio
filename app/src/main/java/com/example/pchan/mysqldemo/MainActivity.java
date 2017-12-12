@@ -63,35 +63,19 @@ public class MainActivity extends AppCompatActivity {
         // Get Current Location
         Location myLocation = locationManager.getLastKnownLocation(provider);
 
-        //latitude of location
-        double myLatitude = myLocation.getLatitude();
-
-        //longitude og location
-        double myLongitude = myLocation.getLongitude();
-
-        //test internet connection
-        boolean connected = false;
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(this.CONNECTIVITY_SERVICE);
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            //we are connected to a network, so send the collected data to the DB
-            //also send any old data stored locally
-            connected = true;
-        }
-        else
+        if (myLocation != null)
         {
-            connected = false; //we are not connected to internet, so store the collected data
+            //latitude of location
+            double myLatitude = myLocation.getLatitude();
+
+            //longitude og location
+            double myLongitude = myLocation.getLongitude();
+
+            String type2 = "InsertUserData";
+            DataSender dataSender = new DataSender(this);
+            dataSender.execute(type2, String.valueOf(myLongitude), String.valueOf(myLatitude), String.valueOf(android_id), time.toString(), "1" );
         }
-
-        Log.d("mylog","DateTime : "+time.toString());
-        Log.d("mylog","Android ID : "+android_id);
-        Log.d("mylog","GPS : " +myLatitude + myLongitude);
-        Log.d("mylog","Internet status : "+connected);
-
-        String type2 = "InsertUserData";
-        DataSender dataSender = new DataSender(this);
-        dataSender.execute(type2, String.valueOf(myLongitude), String.valueOf(myLatitude), String.valueOf(android_id), time.toString(), "1" );
-    }
+  }
 
     public void OnLogin(View view) throws InterruptedException {
         user = User.getInstance();
@@ -115,8 +99,6 @@ public class MainActivity extends AppCompatActivity {
                 loginMsgTv.setText("No matching username and password, retry or make a new account");
             }
         }
-
-
     }
 
     public void OnRegister(View view) {

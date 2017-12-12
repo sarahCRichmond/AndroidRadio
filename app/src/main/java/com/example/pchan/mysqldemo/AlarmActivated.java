@@ -30,8 +30,7 @@ public class AlarmActivated extends AppCompatActivity {
 
         songList = (ListView) findViewById(R.id.songList);
         arrayList = new ArrayList<>();
-        arrayList.add(new Music("Kalimba", "Mr. Scruff", R.raw.kalimba, "Ninja Tune", 2008, "5:48",R.drawable.kalimba));
-
+        arrayList.add(new Music("Kalimba", "Mr. Scruff", R.raw.kalimba, "Ninja Tune", "2008", "5:48",R.drawable.kalimba));
         setContentView(R.layout.activity_music_player);
         Intent myIntent = new Intent(this, music_player.class);
         myIntent.putExtra(Extra_Message,new String[] {arrayList.get(0).getArtist(),arrayList.get(0).getName()});
